@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import dataPost from "./data";
 import { View } from "react-native";
-const data = [];
+var data = [];
 
 await fetch("https://6554c20c63cafc694fe6e77d.mockapi.io/post", {
     method: "GET",
@@ -14,7 +14,7 @@ await fetch("https://6554c20c63cafc694fe6e77d.mockapi.io/post", {
       // handle error
     })
     .then((tasks) => {
-      data.push(tasks);
+      tasks.map((item)=>data.push(item))
     })
     .catch((error) => {
       // handle error

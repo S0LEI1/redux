@@ -8,7 +8,7 @@ const Post = () => {
   const [isUpdate, setIsUpdate] =useState(false);
   const [id, setID] = useState(1);
   const dispatch = useDispatch();
-  const posts = useSelector(selectCount);
+  const posts = useSelector((state)=>state.posts.data);
   console.log('posts',posts);
   return (
     <View>
@@ -40,7 +40,7 @@ const Post = () => {
           <Text>{isUpdate ? 'Update' :'Post'}</Text>
         </Pressable>
       </View>
-      {/* {posts.map((post) => (
+      {posts.map((post) => (
         <View style={{flexDirection:'row', marginHorizontal:5, marginVertical:10}}>
           <View style={{ borderWidth: 1, paddingHorizontal:10, paddingVertical:5 }}>
             <Text>Title: {post.title}</Text>
@@ -60,14 +60,14 @@ const Post = () => {
             </Pressable>
           </View>
         </View>
-      ))} */}
-      {
+      ))}
+      {/* {
         posts.length > 0 ? <View>
-          {posts.map(({item})=>(
-            <View key={item.id}><Text>{item.id}</Text></View>
+          {posts[0].map((item)=>(
+            <View key={item.id}><Text>{item.amount}</Text></View>
           ))}
         </View> : <View><Text>Nodata</Text></View>
-      }
+      } */}
     </View>
   );
 };
